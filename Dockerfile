@@ -38,7 +38,8 @@ RUN pip install --no-cache-dir git+https://github.com/sokrypton/ColabDesign.git@
 # NOTE: This will put the weights inside the container, which is not ideal but makes the execution simpler without needing to refactor the api
 WORKDIR /opt/bindcraft/params
 RUN wget --progress=bar:force:noscroll -O alphafold_params_2022-12-06.tar "https://storage.googleapis.com/alphafold/alphafold_params_2022-12-06.tar" && \ 
-  tar -xvf alphafold_params_2022-12-06.tar /opt/bindcraft/params
+  tar -xvf alphafold_params_2022-12-06.tar && \
+  rm alphafold_params_2022-12-06.tar
 
 #=======================================================================================================================================================#
 # Setup BindCraft
